@@ -20,6 +20,7 @@ Files used are listed below and can be downloaded from https://www1.nyc.gov/site
 <br>
 
 yellow_tripdata_2019-01.csv
+<br>
 zone_lookup.csv
 <br>
 The data pipeline collects the data from the 2 csv files and run some aggregations to find the ranking of most favourite drop-off location for a specific location. The ranking is done based on number of passengers travel from the pickup location to the drop-ff location cumulatively.
@@ -27,9 +28,9 @@ The data pipeline also stores the top five ranked records toa history table.
 
 ## Features
 
-Data pipeline;\ The Data pipeline collects, transforms and stores the data to database
+Data pipeline: The Data pipeline collects, transforms and stores the data to database
 
-Flask service endpoint;\ The Flask service provides easy way to query top 5 favourite drop-off location for a specific pick-up location for a specific month
+Flask service endpoint: The Flask service provides easy way to query top 5 favourite drop-off location for a specific pick-up location for a specific month
 
 ## Technologies
 
@@ -82,13 +83,5 @@ $ airflow scheduler
 $ python query_service.py
 
 ```
-
-## :memo: License
-
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
-
-&#xa0;
 
 <a href="#top">Back to top</a>
