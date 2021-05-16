@@ -25,10 +25,10 @@ def check_file_presense():
 
 def check_file_empty():
     """
-    Checks if files has data
+    Checks if files have data
     """
-    lookup_tbl_df = pd.read_csv(lookup_file_name)
-    trip_data_df = pd.read_csv(data_file_name)
+    lookup_tbl_df = pd.read_csv(lookup_file_name, nrows=100)
+    trip_data_df = pd.read_csv(data_file_name, nrows=100)
 
     assert not lookup_tbl_df.empty and not trip_data_df.empty
 
@@ -74,13 +74,13 @@ def process_data():
     trip_data_df = trip_data_df.rename(
         columns={"Zone_x": "pick_up", "Zone_y": "drop_off"})
 
-    print(trip_data_df.head(10))
+    # print(trip_data_df.head(10))
 
     # get the aggreated passenger count grouped by pickup location for each drop-off lcoation
     trip_data_df = trip_data_df.groupby(['pick_up', 'drop_off']).agg(
         {'passenger_count': 'sum'})
 
-    print(trip_data_df.head(10))
+    # print(trip_data_df.head(10))
 
     # using rank function to rank the drop off location based on the passanger count
     trip_data_df['Rank'] = trip_data_df['passenger_count'].rank(
